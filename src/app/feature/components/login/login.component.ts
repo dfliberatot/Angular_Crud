@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from 'src/app/core/api/services';
+import { Subscriber } from 'rxjs';
+import { ControlService, LoginService } from 'src/app/core/api/services';
 
 @Component({
   selector: 'app-login',
@@ -9,37 +11,67 @@ import { LoginService } from 'src/app/core/api/services';
 })
 export class LoginComponent implements OnInit {
 
-  id: number = 0;
-  password: string = '';
-
-  public loginValid = true;
+  public loginValid = true
+  //formularioLogin: FormGroup
+  formularioLogin: FormGroup = this.fb.group({});
 
   constructor(
     private _route: ActivatedRoute,
-    private _router: Router,
-    private loginService: LoginService
+    private router: Router,
+    private loginService: LoginService,
+    private fb: FormBuilder,
+    //private toastr: ToastrService
+
+    private articulos: ControlService
   ) { }
 
   ngOnInit(): void {
+    this.formLogin()
   }
 
-  login() {
-    console.log(this.id);
-    console.log(this.password);
+  formLogin(): void{
+
+    this.formularioLogin = this.fb.group({
+
+      Id: new FormControl(null, []),
+      Password: new FormControl(null, [])
+
+    })
+
+  }
+  get formularioControls(): FormGroup['controls']{
+    return this.formularioLogin.controls;
   }
 
-  public onSubmit(): void {
-    this.loginValid = true;
+  validateUser(): void {
+    //this.loginValid = true;
 
     const params = {}  as LoginService.ValidateUserServiceUsingGETParams
-    params.id = this.id
-    params.password = this.password
+    params.id = this.formularioControls.Id.value
+    params.password = this.formularioControls.Password.value
+
+    console.log(params);
 
    this.loginService.validateUserServiceUsingGET(params).subscribe({
      next: (data) =>{
-       console.log(data);
+
+      if(data == 1){
+        this.router.navigateByUrl('Articulos/');
+      }   
+     },
+     error: () =>{
+
      }
    })
+
+/*    this.articulos.listarArticulosUsingGET().subscribe({
+     next: (data) =>{
+
+      console.log(data);
+      
+
+     }
+   }) */
 
 /*     this._authService.login(this.id, this.password).pipe(
       take(1)

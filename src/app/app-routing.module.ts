@@ -4,6 +4,7 @@ import { LoginComponent } from './feature/components/login/login.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent, pathMatch: "full" },
+  { path: "Articulos/", loadChildren: () => import('./feature/components/articulos/articulos.module').then(m => m.ArticulosModule) },
 ];
 
 @NgModule({
