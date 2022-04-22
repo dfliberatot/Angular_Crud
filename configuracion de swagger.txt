@@ -1,0 +1,64 @@
+BACKEND -----------------------------------------------------------------
+
+1. Agregar al pom.xml las siguientes dependencias
+
+	<dependency>
+		<groupId>io.springfox</groupId>
+		<artifactId>springfox-swagger2</artifactId>
+		<version>2.9.2</version>
+	</dependency>
+
+	<dependency>
+		<groupId>io.springfox</groupId>
+		<artifactId>springfox-swagger-ui</artifactId>
+		<version>2.9.2</version>
+	</dependency>
+
+
+
+2. Crear un package con una clase para la configuración como la siguiente:
+
+	package com.crud.angular.config;
+
+	import org.springframework.context.annotation.Bean;
+	import org.springframework.context.annotation.Configuration;
+
+	import springfox.documentation.builders.PathSelectors;
+	import springfox.documentation.builders.RequestHandlerSelectors;
+	import springfox.documentation.spi.DocumentationType;
+	import springfox.documentation.spring.web.plugins.Docket;
+	import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+	@Configuration
+	@EnableSwagger2
+	public class SwaggerConfig {
+
+			@Bean
+			public Docket apiDocket() {
+				return new Docket(DocumentationType.SWAGGER_2)
+						.select()
+						.apis(RequestHandlerSelectors.any())
+						.paths(PathSelectors.any())
+						.build()
+						;
+			}
+	}
+-----------------------------------------------------------------------
+
+
+FRONTEND --------------------------------------------------------------
+
+1. Abrir el CMD y dirigirse a la ruta principal del proyecto.
+
+2. Instalar swagger en el frontend con el siguiente comando:
+	npm install ng-swagger-gen --save-dev
+	
+3. Generar el archivo de configuración con el siguiente comando:
+	ng-swagger-gen --gen-config -i http://localhost:8081/v2/api-docs -o src/app/core/api
+	
+	nota: esta ruta es donde se encuentra generada la documentación una vez se instala swagger en el backend, la cual se puede visualizar en: http://localhost:8081/swagger-ui.html#/
+
+4. Ejecutar siguiente comando para mapear los servicios y los modelos que se expuestos en el backend:
+	ng-swagger-gen --config ng-swagger-gen.json
+	
+	nota: este comando se debe ejecutar cada vez que se hagan cambios a nivel de los modelos y en los parámetros o la configuración de los servicios expuestos.
