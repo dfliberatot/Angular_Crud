@@ -13,7 +13,8 @@ import { AgregarArticuloComponent } from './agregar-articulo/agregar-articulo.co
     InfoArticuloComponent,
     ModificarArticuloComponent,
     BorrarArticuloComponent,
-    AgregarArticuloComponent
+    AgregarArticuloComponent,
+
   ],
   imports: [
     CommonModule,
