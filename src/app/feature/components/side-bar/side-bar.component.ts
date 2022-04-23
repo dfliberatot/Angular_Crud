@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class SideBarComponent implements OnInit {
 
+  vista = '';
+
   constructor(
     private router: Router,
   ) { }
@@ -16,7 +18,16 @@ export class SideBarComponent implements OnInit {
   }
 
   info(): void{
-    this.router.navigateByUrl('/agregar');
+    this.vista = 'info';
   }
 
+  agregar(): void{
+    this.vista = 'agre';
+  }
+  Modificar(): void{
+    this.vista = 'mod';
+  }
+  borrar(): void{
+    this.vista = 'bor';
+  }
 }

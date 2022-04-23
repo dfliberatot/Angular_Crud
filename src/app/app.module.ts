@@ -14,6 +14,7 @@ import { BorrarArticuloComponent } from './feature/components/articulos/borrar-a
 import { InfoArticuloComponent } from './feature/components/articulos/info-articulo/info-articulo.component';
 import { ModificarArticuloComponent } from './feature/components/articulos/modificar-articulo/modificar-articulo.component';
 import { RegistroComponent } from './feature/components/registro/registro.component';
+import { AgregarArticuloComponent } from './feature/components/articulos/agregar-articulo/agregar-articulo.component';
 
 
 
@@ -26,6 +27,7 @@ import { RegistroComponent } from './feature/components/registro/registro.compon
     InfoArticuloComponent,
     ModificarArticuloComponent,
     BorrarArticuloComponent,
+    AgregarArticuloComponent,
     
     RegistroComponent
   ],
