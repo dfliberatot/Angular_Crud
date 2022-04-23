@@ -7,6 +7,7 @@ import { StrictHttpResponse as __StrictHttpResponse } from '../strict-http-respo
 import { Observable as __Observable } from 'rxjs';
 import { map as __map, filter as __filter } from 'rxjs/operators';
 
+import { Usuario } from '../models/usuario';
 
 /**
  * Login Controller
@@ -15,6 +16,7 @@ import { map as __map, filter as __filter } from 'rxjs/operators';
   providedIn: 'root',
 })
 class LoginService extends __BaseService {
+  static readonly registerUserUsingPOSTPath = '/login/registerUser';
   static readonly validateUserServiceUsingGETPath = '/login/validateUser';
 
   constructor(
@@ -22,6 +24,44 @@ class LoginService extends __BaseService {
     http: HttpClient
   ) {
     super(config, http);
+  }
+
+  /**
+   * Registrar usuario
+   * @param user user
+   * @return OK
+   */
+  registerUserUsingPOSTResponse(user: Usuario): __Observable<__StrictHttpResponse<boolean>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = user;
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/login/registerUser`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'text'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return (_r as HttpResponse<any>).clone({ body: (_r as HttpResponse<any>).body === 'true' }) as __StrictHttpResponse<boolean>
+      })
+    );
+  }
+  /**
+   * Registrar usuario
+   * @param user user
+   * @return OK
+   */
+  registerUserUsingPOST(user: Usuario): __Observable<boolean> {
+    return this.registerUserUsingPOSTResponse(user).pipe(
+      __map(_r => _r.body as boolean)
+    );
   }
 
   /**
