@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Articulo } from 'src/app/core/api/models/articulo';
 import { ControlService } from 'src/app/core/api/services';
+
 
 @Component({
   selector: 'app-info-articulo',
@@ -9,7 +11,16 @@ import { ControlService } from 'src/app/core/api/services';
 export class InfoArticuloComponent implements OnInit {
 
 
+
   articulos:any=[];
+  displayedColumns: string[] = ['id_articulo', 'descripcion', 'precio']
+  
+  columnas = [
+    {titulo: "ID", name: "id_articulo"},
+    {titulo: "Descripcion", name: "descripcion"},
+    {titulo: "Precio" ,name: "precio"}
+  ]
+  
 
   constructor( private articulosService : ControlService) { }
 
@@ -19,8 +30,11 @@ export class InfoArticuloComponent implements OnInit {
 
   recuperarArticulos(){
     this.articulosService.listarArticulosUsingGET().subscribe((dataArticulo : any) => {
-      this.articulos = dataArticulo;
+      this.articulos = dataArticulo;      
     })
+    
+  
+  
   }
 
 }

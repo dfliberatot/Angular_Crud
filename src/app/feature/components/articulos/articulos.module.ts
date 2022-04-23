@@ -6,6 +6,7 @@ import { InfoArticuloComponent } from './info-articulo/info-articulo.component';
 import { ModificarArticuloComponent } from './modificar-articulo/modificar-articulo.component';
 import { BorrarArticuloComponent } from './borrar-articulo/borrar-articulo.component';
 import { AgregarArticuloComponent } from './agregar-articulo/agregar-articulo.component';
+import { AngularMaterialModule } from 'src/app/angular-material.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AgregarArticuloComponent } from './agregar-articulo/agregar-articulo.co
   ],
   imports: [
     CommonModule,
-    ArticulosRoutingModule
+    ArticulosRoutingModule,
+    AngularMaterialModule
   ]
 })
 export class ArticulosModule { }
