@@ -1,0 +1,39 @@
+<mat-card>
+    <mat-card-content>
+      <form [formGroup]="formularioRegistro" autocomplete="off">
+        <h2>Registro</h2>
+
+        <mat-form-field>
+          <input matInput type="id" placeholder="identificacion" formControlName="id_usuario" name="id_usuario" required>
+          <mat-error>
+            Introduzca un id valido
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="email" placeholder="Correo" formControlName="correo" name="correo" required>
+          <mat-error>
+            Introduzca un correo valido
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" placeholder="nombre" formControlName="nombre" name="Id" required>
+            <mat-error>
+            Introduzca un nombre valido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="password" placeholder="contraseña" formControlName="contraseña" name="contraseña" required>
+            <mat-error>
+            Introduzca una contraseña valida
+            </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="registrarUsuario()">Registro</button>
+        <button mat-raised-button color="primary" (click)="vistaLogin()">Regresar</button>
+      </form>
+    </mat-card-content>
+</mat-card>
+  
