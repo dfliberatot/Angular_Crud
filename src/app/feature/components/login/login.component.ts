@@ -24,6 +24,11 @@ export class LoginComponent implements OnInit {
     private articulos: ControlService
   ) { }
 
+
+  registrar_usuario(){
+    this.router.navigateByUrl('Registro/');
+  }
+
   ngOnInit(): void {
     this.formLogin()
   }

@@ -5,6 +5,7 @@ import { BorrarArticuloComponent } from './feature/components/articulos/borrar-a
 import { InfoArticuloComponent } from './feature/components/articulos/info-articulo/info-articulo.component';
 import { ModificarArticuloComponent } from './feature/components/articulos/modificar-articulo/modificar-articulo.component';
 import { LoginComponent } from './feature/components/login/login.component';
+import { RegistroComponent } from './feature/components/registro/registro.component';
 import { SideBarComponent } from './feature/components/side-bar/side-bar.component';
 
 const routes: Routes = [
@@ -17,6 +18,8 @@ const routes: Routes = [
   { path: "modificar", component: ModificarArticuloComponent, pathMatch: "full" },
 
   //{ path: "Articulos", loadChildren: () => import('./feature/components/articulos/articulos.module').then(m => m.ArticulosModule) },
+  { path: "Registro/", component:RegistroComponent},
+  
 ];
 
 @NgModule({

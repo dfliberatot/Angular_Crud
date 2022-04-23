@@ -13,6 +13,7 @@ import { SideBarComponent } from './feature/components/side-bar/side-bar.compone
 import { BorrarArticuloComponent } from './feature/components/articulos/borrar-articulo/borrar-articulo.component';
 import { InfoArticuloComponent } from './feature/components/articulos/info-articulo/info-articulo.component';
 import { ModificarArticuloComponent } from './feature/components/articulos/modificar-articulo/modificar-articulo.component';
+import { RegistroComponent } from './feature/components/registro/registro.component';
 
 
 
@@ -26,7 +27,7 @@ import { ModificarArticuloComponent } from './feature/components/articulos/modif
     ModificarArticuloComponent,
     BorrarArticuloComponent,
     
-    
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
