@@ -14,7 +14,10 @@
           Please provide a valid password
         </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary" (click)="validateUser()">Login</button>
+      <div class="botones">
+        <button mat-raised-button color="primary" (click)="validateUser()">Login</button>
+        <button mat-raised-button color="primary" (click)="registrar_usuario()" >Registrar</button>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>

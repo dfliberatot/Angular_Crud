@@ -9,13 +9,15 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './feature/components/login/login.component';
 import { AngularMaterialModule } from './angular-material.module';
+import { RegistroComponent } from './feature/components/registro/registro.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
