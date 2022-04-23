@@ -3,19 +3,19 @@
     <mat-sidenav mode="side" opened class="sideNav-container">
   
       <div>
-        <button mat-raised-button color="primary">Información</button>
+        <button mat-raised-button color="primary" (click)="info()" >Información</button>
       </div>
   
       <div>
-        <button mat-raised-button color="primary" (click)="info()" >Agregar</button>
+        <button mat-raised-button color="primary" (click)="agregar()" >Agregar</button>
       </div>
   
       <div>
-        <button mat-raised-button color="primary">Modificar</button>
+        <button mat-raised-button color="primary" (click)="Modificar()">Modificar</button>
       </div>
   
       <div>
-        <button mat-raised-button color="primary">Borrar</button>
+        <button mat-raised-button color="primary"(click)="borrar()" >Borrar</button>
       </div>
 
   
@@ -31,6 +31,22 @@
   
       <div class = "Main">
         <app-info-articulo></app-info-articulo>
+      </div>
+
+      <div *ngIf="vista === 'info'">
+        <app-info-articulo></app-info-articulo>
+      </div>
+
+      <div *ngIf="vista === 'agre'">
+        <app-agregar-articulo></app-agregar-articulo>
+      </div>
+
+      <div *ngIf="vista === 'mod'">
+        <app-modificar-articulo></app-modificar-articulo>
+      </div>
+
+      <div *ngIf="vista === 'bor'">
+        <app-borrar-articulo></app-borrar-articulo>
       </div>
 
     </mat-sidenav-content>
