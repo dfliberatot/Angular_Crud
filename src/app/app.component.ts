@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { articuloModel } from './model/Articulo';
+/* import { articuloModel } from './model/Articulo';
 import { ArticulosService } from './services/articulos.service';
-
+ */
 import { MatTable } from '@angular/material/table';
 
 @Component({
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
 
  
 
-  constructor(private articulosService: ArticulosService ){}
+  constructor(/* private articulosService: ArticulosService */ ){}
 
   ngOnInit(){
 

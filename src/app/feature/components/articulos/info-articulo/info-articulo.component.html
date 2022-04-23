@@ -1,1 +1,29 @@
-<p>info-articulo works!</p>
+<div>
+  <table border="1">
+    <tr>
+      <td>Codigo</td><td>Descripcion</td><td>Precio</td><td>Borrar</td><td>Seleccionar</td>
+    </tr>
+    <tr *ngFor="let articulo of articulos">
+      <td>{{articulo.id_articulo}}</td>
+      <td>{{articulo.descripcion}}</td>
+      <td>{{articulo.precio}}</td>
+      <!-- <td><button (click)="eliminarArticulo(articulo.id_articulo)">Borrar?</button></td>
+      <td><button (click)=seleccionarArticulo(articulo.id_articulo)>Seleccionar</button></td> -->
+    </tr>
+  </table>
+
+  <div>
+    <p>
+      <!-- Descripcion:<input type="text" [(ngModel)]="art.descripcion" /> -->
+    </p>
+    <p>
+      <!-- Precio: <input type="text" [(ngModel)]="art.precio" /> -->
+    <p>
+      <!-- <button (click)="guardarArticulo()">Agregar</button>
+      <button (click)="actualizarArticulo()">Modificar</button> -->
+    </p>
+  </div>
+
+  <br>
+
+</div>

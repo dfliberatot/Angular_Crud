@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ControlService } from 'src/app/core/api/services';
 
 @Component({
   selector: 'app-info-articulo',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoArticuloComponent implements OnInit {
 
-  constructor() { }
+
+  articulos:any=[];
+
+  constructor( private articulosService : ControlService) { }
 
   ngOnInit(): void {
+    this.recuperarArticulos()
+  }
+
+  recuperarArticulos(){
+    this.articulosService.listarArticulosUsingGET().subscribe((dataArticulo : any) => {
+      this.articulos = dataArticulo;
+    })
   }
 
 }
