@@ -25,6 +25,11 @@ export class LoginComponent implements OnInit {
     private articulos: ControlService
   ) { }
 
+
+  registrar_usuario(){
+    this.router.navigateByUrl('Registro/');
+  }
+
   ngOnInit(): void {
     this.formLogin()
   }
@@ -56,13 +61,15 @@ export class LoginComponent implements OnInit {
      next: (data) =>{
 
       if(data == 1){
-        this.router.navigateByUrl('Articulos/');
+        this.router.navigateByUrl('Registro/');
       }   
      },
      error: () =>{
 
      }
    })
+
+   
 
 /*    this.articulos.listarArticulosUsingGET().subscribe({
      next: (data) =>{
