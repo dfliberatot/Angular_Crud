@@ -1,0 +1,22 @@
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgb(226, 226, 226);
+  }
+  
+  .sideNav-container {
+  
+    background-color: rgba(0, 115, 255, 0.436);
+  }
+  
+  button{
+    margin: 10PX;
+    /*background-color: rgb(73, 154, 253);*/
+  }
+  
+  .Main{
+    padding: 10px;
+  }
