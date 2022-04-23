@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscriber } from 'rxjs';
 import { ControlService, LoginService } from 'src/app/core/api/services';
 
 @Component({
@@ -56,32 +55,13 @@ export class LoginComponent implements OnInit {
      next: (data) =>{
 
       if(data == 1){
-        this.router.navigateByUrl('Articulos/');
+        this.router.navigateByUrl('main');
       }   
      },
      error: () =>{
 
      }
    })
-
-/*    this.articulos.listarArticulosUsingGET().subscribe({
-     next: (data) =>{
-
-      console.log(data);
-      
-
-     }
-   }) */
-
-/*     this._authService.login(this.id, this.password).pipe(
-      take(1)
-    ).subscribe({
-      next: _ => {
-        this.loginValid = true;
-        this._router.navigateByUrl('/game');
-      },
-      error: _ => this.loginValid = false
-    }); */
   }
 
 }
