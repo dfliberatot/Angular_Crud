@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ControlService } from 'src/app/core/api/services';
 
 @Component({
   selector: 'app-registro',
@@ -9,9 +10,12 @@ import { Router } from '@angular/router';
 })
 export class RegistroComponent implements OnInit {
 
+  articulos:any=[];
+
   formularioRegistro: FormGroup = this.fb.group({});
 
-  constructor(private fb: FormBuilder,
+  constructor(private articulosService : ControlService,
+              private fb: FormBuilder,
               private router: Router,) { }
 
   ngOnInit(): void {
@@ -21,14 +25,22 @@ export class RegistroComponent implements OnInit {
 
     this.formularioRegistro = this.fb.group({
 
-      Id: new FormControl(null, []),
-      Password: new FormControl(null, [])
+      id_usuario: new FormControl(null, []),
+      correo: new FormControl(null, []),
+      nombre: new FormControl(null, []),
+      contraseña: new FormControl(null, []),
 
     })
   }
 
-  registrarUsuario(){
+  get formularioControls(): FormGroup['controls']{
+    return this.formularioRegistro.controls;
+  }
 
+  registrarUsuario(){
+    this.articulosService.insertarArticulosUsingPOST(this.articulos).subscribe((datosArticulos:any)=>{
+
+    })
   }
 
   vistaLogin(){

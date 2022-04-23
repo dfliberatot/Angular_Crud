@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
      next: (data) =>{
 
       if(data == 1){
-        this.router.navigateByUrl('Registro/');
+        this.router.navigateByUrl('Articulos/');
       }   
      },
      error: () =>{
